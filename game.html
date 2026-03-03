@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPS | Lets Play</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link
+      rel="shortcut icon"
+      href="./img/icons8-hitfilm-pro-32.png"
+      type="image/x-icon"
+    />
+    <!-- <script src="https://kit.fontawesome.com" crossorigin="anonymous"></script> -->
+  </head>
+  <body>
+    <header class="container">
+      <!-- For the Nav container -->
+      <div class="nav-container">
+        <div class="nav-header">
+          <h1>Pro</h1>
+        </div>
+        <ul class="nav-list">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a
+              href=""
+              onclick="
+                score.win = 0;
+                score.lose = 0;
+                score.tie = 0;
+                localStorage.removeItem('score');
+                UpdateScoreElement();
+              "
+              >Restart Game</a
+            >
+          </li>
+          <li class="link">Help</li>
+        </ul>
+
+        <div class="open">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <!--!Font Awesome Free v7.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.-->
+            <path
+              d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- For the Sidebar -->
+
+      <div class="sidebar-container">
+        <div class="close">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24px"
+            viewBox="0 -960 960 960"
+            width="24px"
+            fill="#e3e3e3"
+          >
+            <path
+              d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"
+            />
+          </svg>
+        </div>
+        <div class="sidebar-header">
+          <h1>Pro</h1>
+        </div>
+        <ul class="list">
+          <li><a href="index.html">Home</a></li>
+          <li>
+            <a
+              href=""
+              onclick="
+                score.win = 0;
+                score.lose = 0;
+                score.tie = 0;
+                localStorage.removeItem('score');
+                UpdateScoreElement();
+              "
+              >Restart Game</a
+            >
+          </li>
+          <li class="link">Help</li>
+          <!-- <li><a href="">FAQ</a></li> -->
+        </ul>
+      </div>
+
+      <div class="overlay"></div>
+
+      <!-- HELP MODAL -->
+      <div class="help-modal" id="helpModal">
+        <div class="help-content">
+          <span class="close-btn" onclick="closeHelp()">&times;</span>
+
+          <h2>🎮 How to Play Rock–Paper–Scissors</h2>
+
+          <p>
+            Rock–Paper–Scissors is a classic hand game played between two
+            players. In this version, you compete against the computer. Choose
+            wisely and try to outsmart your opponent!
+          </p>
+
+          <h3>📌 Game Objective</h3>
+          <p>
+            Be the first to reach <strong>5 wins</strong> before the computer.
+          </p>
+
+          <h3>🕹 How to Play</h3>
+          <ol>
+            <li>
+              Click on one of the three buttons: Rock, Paper, or Scissors.
+            </li>
+            <li>The computer will automatically choose its move.</li>
+            <li>The result of the round will appear instantly.</li>
+            <li>The score updates after every round.</li>
+            <li>The first to reach 5 wins becomes the overall winner.</li>
+          </ol>
+
+          <h3>📖 Game Rules</h3>
+          <ul>
+            <li>🪨 Rock beats Scissors</li>
+            <li>✂️ Scissors beats Paper</li>
+            <li>📄 Paper beats Rock</li>
+            <li>Same move = Tie</li>
+          </ul>
+
+          <h3>🏆 Winning the Game</h3>
+          <ul>
+            <li>Each win gives you 1 point.</li>
+            <li>Each computer win gives the computer 1 point.</li>
+            <li>Ties do not count as wins.</li>
+            <li>
+              When either player reaches 5 wins, the game ends automatically.
+            </li>
+            <li>You must click <strong>Restart Game</strong> to play again.</li>
+          </ul>
+
+          <h3>🔄 Restarting the Game</h3>
+          <p>
+            Click the <strong>Restart Game</strong> button to reset scores and
+            start a new match.
+          </p>
+        </div>
+      </div>
+    </header>
+
+    <!-- for the main body - Game -->
+    <main>
+      <p class="title">ROCK PAPER SCISSORS</p>
+      <div>
+        <button type="button" onclick="playGame('rock')" class="btn">
+          <img
+            src="./img/rock-emoji.png"
+            alt="rock hand emoji"
+            class="move-icon"
+          />
+        </button>
+        <button type="button" onclick="playGame('paper')" class="btn">
+          <img
+            src="./img/paper-emoji.png"
+            alt="paper hand emoji"
+            class="move-icon"
+          />
+        </button>
+        <button type="button" onclick="playGame('scissors')" class="btn">
+          <img
+            src="./img/scissors-emoji.png"
+            alt="scissors hand emoji"
+            class="move-icon"
+          />
+        </button>
+        <!-- <button type="button" onclick="
+      score.win = 0;
+      score.lose = 0;
+      score.tie = 0;
+      localStorage.removeItem('score');
+      ">Reset</button> -->
+      </div>
+      <p class="js-result result"></p>
+      <p class="js-move show-move"></p>
+      <p class="js-score show-score"></p>
+    </main>
+  </body>
+
+  <script src="./js/game.js"></script>
+</html>

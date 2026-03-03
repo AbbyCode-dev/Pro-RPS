@@ -1,0 +1,397 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --text-color: white;
+  --font-family: 'Poppins', sans-serif;
+}
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #333;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  position: relative;
+}
+
+.container {
+  position: sticky;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.605);
+}
+
+/* nav container */
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100%, 1250px);
+  margin: auto;
+}
+
+.nav-header {
+  margin-left: 16px;
+}
+
+/* Animation for h1 */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+h1::before {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 20px;
+  top: 15px;
+  z-index: -1;
+  background-image: linear-gradient(var(--angle), transparent 90%, red, green, blue);
+  padding: 1rem;
+  animation: 5s spin linear infinite;
+  border-radius: 10px;
+}
+
+.h1::after {
+  filter: blur(1.5rem);
+  opacity: .5;
+}
+
+@keyframes spin {
+  from {
+    --angle: 0deg;
+  }
+
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* Nav List */
+.nav-list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.nav-list li {
+  list-style: none;
+  padding: .5rem;
+  cursor: pointer;
+  transition: all .3s linear;
+  width: min(100%, 150px);
+  text-align: center;
+}
+
+.nav-list li a {
+  text-decoration: none;
+  color: white;
+}
+
+.nav-list li:hover {
+  background-color: rgba(128, 128, 128, 0.631);
+}
+
+.nav-list li:hover a {
+  color: whitesmoke;
+}
+
+.nav-list li:last-child {
+  margin-right: .7rem;
+}
+
+/* To display the Sidebar by clicking on the hamburger icon */
+
+.open {
+  margin-right: 1rem;
+  cursor: pointer;
+}
+
+.open svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-color);
+}
+
+@media (max-width:600px) {
+  .nav-list {
+    display: none;
+  }
+}
+
+@media (min-width:600px) {
+  .nav-list {
+    width: 400px;
+  }
+
+  .open {
+    display: none;
+  }
+}
+
+/* Sidebar container */
+.sidebar-container {
+  width: 250px;
+  background-color: #333;
+  border-radius: 8px;
+  box-shadow: 0 0px 4px rgba(255, 255, 255, 0.371);
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  z-index: 10;
+  transition: transform .4s linear;
+  transform: translateX(100%);
+}
+
+/* this is used in js to show the sidebar container */
+.show-sidebar {
+  transform: translateX(0);
+}
+
+/* To close the Sidebar by clicking on the close icon */
+
+.close {
+  position: relative;
+}
+
+.close svg {
+  width: 24px;
+  height: 24px;
+  fill: var(--text-color);
+  position: absolute;
+  top: 32px;
+  right: 16px;
+  cursor: pointer;
+}
+
+.sidebar-header {
+  padding-left: 16px;
+}
+
+.list {
+  padding: 0;
+}
+
+.list li {
+  padding: 1rem;
+  list-style: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.list li a {
+  text-decoration: none;
+  color: var(--text-color);
+}
+
+.list li:hover {
+  background-color: rgba(128, 128, 128, 0.631);
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.165);
+  /* Semi-transparent black */
+  z-index: 5;
+  /* Sit behind the sidebar (z-index 10) but above content */
+  display: none;
+  /* Hidden by default */
+}
+
+.show-overlay {
+  display: block;
+}
+
+/* For the game  */
+
+main {
+  /* display: flex;
+  flex-direction: column;
+  align-items: center; */
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.move-icon {
+  height: 50px;
+}
+
+.btn {
+  background-color: transparent;
+  width: 50%;
+  max-width: 110px;
+  height: 120px;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+
+.btn:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  transition: all 0.1s linear;
+}
+
+.result {
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 50px;
+}
+
+.show-move {
+  font-size: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  margin: auto;
+}
+
+.show-score {
+  font-size: 25px;
+  margin-top: 60px;
+}
+
+@media (max-width: 387px) {
+  .btn {
+      width: 100%;
+      max-width: 100px;
+      height: 100px;
+      margin-right: 1rem;
+    }
+}
+
+
+/* for help section */
+
+/* ===== MODAL OVERLAY ===== */
+
+.help-modal {
+  display: none;
+  /* hidden by default */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s ease forwards;
+  z-index: 1000;
+}
+
+
+/* ===== MODAL CONTENT ===== */
+
+.help-content {
+  background: #ffffff;
+  color: black;
+  width: 90%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: slideUp 0.4s ease forwards;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+
+/* ===== CLOSE BUTTON ===== */
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+  color: #7c3aed;
+}
+
+
+/* ===== TEXT STYLING ===== */
+
+.help-content h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.help-content h3 {
+  margin-top: 20px;
+  color: #4f46e5;
+}
+
+.help-content p,
+.help-content li {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.help-content ul,
+.help-content ol {
+  padding-left: 20px;
+}
+
+
+/* ===== SCROLLBAR (optional clean look) ===== */
+
+.help-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.help-content::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border-radius: 10px;
+}
+
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

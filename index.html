@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RPS | Lets Play</title>
+    <link
+      rel="shortcut icon"
+      href="./img/icons8-hitfilm-pro-32.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./css/home.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>ROCK PAPER SCISSORS</h1>
+      <div class="img-container">
+        <img src="./img/rock-emoji.png" />
+        <img src="./img/paper-emoji.png" />
+        <img src="./img/scissors-emoji.png" />
+      </div>
+      <a href="game.html"
+        ><button type="button" class="game-btn">Start Game</button></a
+      >
+
+      <!-- HELP BUTTON -->
+      <button class="game-btn" onclick="openHelp()">How to Play</button>
+
+      <!-- HELP MODAL -->
+      <div class="help-modal" id="helpModal">
+        <div class="help-content">
+          <span class="close-btn" onclick="closeHelp()">&times;</span>
+
+          <h2>🎮 How to Play Rock–Paper–Scissors</h2>
+
+          <p>
+            Rock–Paper–Scissors is a classic hand game played between two
+            players. In this version, you compete against the computer. Choose
+            wisely and try to outsmart your opponent!
+          </p>
+
+          <h3>📌 Game Objective</h3>
+          <p>
+            Be the first to reach <strong>5 wins</strong> before the computer.
+          </p>
+
+          <h3>🕹 How to Play</h3>
+          <ol>
+            <li>
+              Click on one of the three buttons: Rock, Paper, or Scissors.
+            </li>
+            <li>The computer will automatically choose its move.</li>
+            <li>The result of the round will appear instantly.</li>
+            <li>The score updates after every round.</li>
+            <li>The first to reach 5 wins becomes the overall winner.</li>
+          </ol>
+
+          <h3>📖 Game Rules</h3>
+          <ul>
+            <li>🪨 Rock beats Scissors</li>
+            <li>✂️ Scissors beats Paper</li>
+            <li>📄 Paper beats Rock</li>
+            <li>Same move = Tie</li>
+          </ul>
+
+          <h3>🏆 Winning the Game</h3>
+          <ul>
+            <li>Each win gives you 1 point.</li>
+            <li>Each computer win gives the computer 1 point.</li>
+            <li>Ties do not count as wins.</li>
+            <li>
+              When either player reaches 5 wins, the game ends automatically.
+            </li>
+            <li>You must click <strong>Restart Game</strong> to play again.</li>
+          </ul>
+
+          <h3>🔄 Restarting the Game</h3>
+          <p>
+            Click the <strong>Restart Game</strong> button to reset scores and
+            start a new match.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+  </body>
+  <script src="./js/index.js"></script>
+</html>

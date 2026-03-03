@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --text-color: white;
+  --font-family: 'Poppins', sans-serif;
+}
+
+* {
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: #333;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  position: relative;
+  color: white;
+  min-height: 100dvh;
+  min-height: 100vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 500px;
+}
+
+h1 {
+  font-size: clamp(1rem, 4vh, 4rem);
+}
+
+a button,
+button {
+  padding: 1rem;
+  width: min(100%, 150px);
+  font-size: 1rem;
+  margin: .5rem 0 .5rem 0;
+  font-weight: 600;
+  color: #333;
+  border: none;
+  border-radius: 10px;
+  transition: all .1s linear;
+}
+
+a {
+  width: 150px;
+  text-decoration: none;
+  color: #333;
+}
+
+button:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.712);
+  color: black;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: 2rem 0 2rem 0;
+}
+
+img {
+  width: min(100%, 80px);
+}
+
+/* help section */
+
+/* ===== HELP BUTTON ===== */
+
+.game-btn {
+  padding: 10px 18px;
+  font-size: 14px;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  background: linear-gradient(135deg, #4f46e5, #7c3aed);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.game-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(124, 58, 237, 0.4);
+}
+
+
+/* ===== MODAL OVERLAY ===== */
+
+.help-modal {
+  display: none;
+  /* hidden by default */
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.4s ease forwards;
+  z-index: 1000;
+}
+
+
+/* ===== MODAL CONTENT ===== */
+
+.help-content {
+  background: #ffffff;
+  color: black;
+  width: 90%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+  animation: slideUp 0.4s ease forwards;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+
+/* ===== CLOSE BUTTON ===== */
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.close-btn:hover {
+  transform: rotate(90deg);
+  color: #7c3aed;
+}
+
+
+/* ===== TEXT STYLING ===== */
+
+.help-content h2 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.help-content h3 {
+  margin-top: 20px;
+  color: #4f46e5;
+}
+
+.help-content p,
+.help-content li {
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.help-content ul,
+.help-content ol {
+  padding-left: 20px;
+}
+
+
+/* ===== SCROLLBAR (optional clean look) ===== */
+
+.help-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.help-content::-webkit-scrollbar-thumb {
+  background: #7c3aed;
+  border-radius: 10px;
+}
+
+
+/* ===== ANIMATIONS ===== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(40px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* .help-container {
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.789);
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateY(-1000px);
+  transition: transform all .2s linear;
+  z-index: 1;
+}
+
+.show-help {
+  transform: translateY(0px);
+}
+
+.help-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.flex {
+  display: flex;
+    align-items: center;
+}
+
+.flex h3 {
+  margin-right: .5rem;
+}
+
+.flex img {
+  width: 30px;
+}
+
+.help-container p {
+  margin: 1rem;
+}
+
+.close {
+  cursor: pointer;
+} */
